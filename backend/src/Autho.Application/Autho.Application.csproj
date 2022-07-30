@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Autho.Application\Autho.Application.csproj" />
-    <ProjectReference Include="..\Autho.Infra.Data\Autho.Infra.Data.csproj" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Autho.Domain\Autho.Domain.csproj" />
   </ItemGroup>
 
 </Project>

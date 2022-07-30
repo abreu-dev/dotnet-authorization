@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Autho.Application\Autho.Application.csproj" />
-    <ProjectReference Include="..\Autho.Infra.Data\Autho.Infra.Data.csproj" />
-  </ItemGroup>
-
 </Project>

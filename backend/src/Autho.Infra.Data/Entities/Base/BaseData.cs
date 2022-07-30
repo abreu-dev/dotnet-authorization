@@ -9,5 +9,11 @@
 
         public DateTime? UpdatedDate { get; private set; }
         public string? UpdatedBy { get; private set; }
+
+        protected BaseData()
+        {
+            CreatedDate = DateTime.UtcNow;
+            CreatedBy = "System";
+        }
     }
 }
