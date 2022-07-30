@@ -1,5 +1,6 @@
 ﻿using Autho.Domain.Entities;
 using Autho.Domain.Interfaces;
+using AutoMapper;
 
 namespace Autho.Infra.Data.Seed
 {
@@ -8,7 +9,7 @@ namespace Autho.Infra.Data.Seed
         public static string AdministratorProfileName => "Administrator";
 
         public static void SeedData(IProfileRepository profileRepository, 
-                                    IPermissionRepository permissionRepository)
+                                    IPermissionRepository permissionRepository, IMapper _mapper)
         {
             var existingProfile = profileRepository.GetByName(AdministratorProfileName);
             var permissions = permissionRepository.GetAll().ToList();
@@ -16,7 +17,7 @@ namespace Autho.Infra.Data.Seed
             if (existingProfile == null)
             {
                 var newProfile = new ProfileDomain(AdministratorProfileName, permissions);
-                profileRepository.Add(newProfile);
+                profileRepository.Add(newProfile); 
             }
             else
             {

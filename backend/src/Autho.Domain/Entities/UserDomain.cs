@@ -19,6 +19,28 @@ namespace Autho.Domain.Entities
             Email = email;
             Login = login;
             Password = password;
+            Profiles = new List<ProfileDomain>();
+        }
+
+        public void AddProfiles(ICollection<ProfileDomain> profiles)
+        {
+            profiles.ToList().ForEach(profile =>
+            {
+                AddProfile(profile);
+            });
+        }
+
+        public void AddProfile(ProfileDomain profile)
+        {
+            if (!ProfileExists(profile))
+            {
+                Profiles.Add(profile);
+            }
+        }
+
+        public bool ProfileExists(ProfileDomain profile)
+        {
+            return Profiles.Any(x => x.Name == profile.Name);
         }
     }
 }

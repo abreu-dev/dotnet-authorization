@@ -3,6 +3,7 @@ using Autho.Domain.Interfaces;
 using Autho.Infra.Data.Context;
 using Autho.Infra.Data.Entities;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Autho.Infra.Data.Repositories
 {
@@ -16,6 +17,8 @@ namespace Autho.Infra.Data.Repositories
         {
             return _mapper.Map<ProfileDomain>(
                 _context.Query<ProfileData>()
+                    .Include(x => x.Permissions)
+                    .ThenInclude(x => x.Permission)
                     .FirstOrDefault(x => x.Name == name)
             );
         }

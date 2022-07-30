@@ -15,7 +15,8 @@ namespace Autho.Api.Configurations
                 var mapper = scope.ServiceProvider.GetRequiredService<IMapper>();
 
                 PermissionSeed.SeedData(new PermissionRepository(context, mapper));
-                ProfileSeed.SeedData(new ProfileRepository(context, mapper), new PermissionRepository(context, mapper));
+                ProfileSeed.SeedData(new ProfileRepository(context, mapper), new PermissionRepository(context, mapper), mapper);
+                //UserSeed.SeedData(new UserRepository(context, mapper), new ProfileRepository(context, mapper));
             }
         }
     }

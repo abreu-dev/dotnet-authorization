@@ -24,5 +24,15 @@ namespace Autho.Infra.Data.Repositories
 
             return _mapper.Map<IEnumerable<UserDomain>>(users);
         }
+
+        public UserDomain GetByName(string name)
+        {
+            return _mapper.Map<UserDomain>(
+                _context.Query<UserData>()
+                    .Include(x => x.Profiles)
+                    .ThenInclude(x => x.Profile)
+                    .FirstOrDefault(x => x.Name == name)
+            );
+        }
     }
 }

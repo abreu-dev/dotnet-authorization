@@ -1,8 +1,6 @@
 ﻿using Autho.Infra.Data.Entities.Base;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Query;
-using System.Linq.Expressions;
 using System.Reflection;
 
 namespace Autho.Infra.Data.Context

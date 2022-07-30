@@ -25,11 +25,11 @@ namespace Autho.Domain.Entities
 
         public void AddPermissions(ICollection<PermissionDomain> permissions)
         {
-            permissions.ToList().ForEach(permissions =>
+            permissions.ToList().ForEach(permission =>
             {
-                if (!PermissionExists(permissions))
+                if (!PermissionExists(permission))
                 {
-                    Permissions.Add(permissions);
+                    Permissions.Add(permission);
                 }
             });
         }
